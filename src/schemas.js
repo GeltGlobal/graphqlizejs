@@ -1,7 +1,7 @@
 import upperFirst from 'lodash.upperfirst';
 import Sequelize from 'sequelize';
-import { mapTypes } from './types';
-import { operatorsAny, operatorsString } from './operators';
+import { mapTypes } from './types.js';
+import { operatorsAny, operatorsString } from './operators.js';
 
 function assertNotEmpty(obj, msg) {
   if (obj === undefined || obj === null)
@@ -88,7 +88,7 @@ function generateInputOperators(sequelize) {
   `;
 
   return Object.values(modelsTypes)
-    .filter(gqType => !['JSON', 'JSONB'].includes(gqType))
+    .filter(gqType => !['JSON', 'JSONB',''].includes(gqType))
     .map((gqType) => {
       return `input _input${gqType}Operator {
             ${conditionsToString(gqType)}

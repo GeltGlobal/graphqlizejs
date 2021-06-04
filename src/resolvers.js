@@ -4,11 +4,12 @@ import Sequelize from 'sequelize';
 import { withFilter, PubSub } from 'apollo-server';
 import GraphQLJSON, { GraphQLJSONObject } from 'graphql-type-json';
 
+import graphql_iso_date from 'graphql-iso-date';
 const {
   GraphQLDate,
   GraphQLDateTime,
   GraphQLTime,
-} = require('graphql-iso-date');
+} = graphql_iso_date
 
 function getModelName(model) {
   return model.options.gqName || upperFirst(model.tableName);

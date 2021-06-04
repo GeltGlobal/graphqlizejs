@@ -1,8 +1,9 @@
 {
-  "name": "graphqlizejs",
-  "description": "Generate DataTypes and Resolvers from your ORM Sequilize models",
-  "version": "0.4.0",
-  "main": "./lib/index.js",
+  "name": "@geltglobal/graphqlizejs",
+  "version": "0.4.1",
+  "description": "Generate DataTypes and Resolvers from your ORM Sequilize models.",
+  "main": "./src/index.js",
+  "type": "module",
   "engines": {
     "node": ">=10.0"
   },
@@ -16,17 +17,7 @@
   "author": "Steven Koch <stvkoch@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "example": "./node_modules/nodemon/bin/nodemon.js --exec babel-node ./example/server.js",
-    "start": "./node_modules/nodemon/bin/nodemon.js --exec babel-node ./example/server.js",
-    "test": "./node_modules/mocha/bin/mocha --require @babel/polyfill --require @babel/register",
-    "prepublish-watch": "./node_modules/nodemon/bin/nodemon.js --exec npm run prepublish",
-    "prepublish": "./node_modules/@babel/cli/bin/babel.js src --out-dir lib"
-  },
-  "nodemonConfig": {
-    "ignore": [
-      "test/*",
-      "lib/*"
-    ]
+    "test": "exit 0"
   },
   "dependencies": {
     "graphql-iso-date": "^3.6.1",
@@ -36,12 +27,6 @@
     "sequelize": "^5.21.7"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.6",
-    "@babel/node": "^7.8.7",
-    "@babel/polyfill": "^7.8.7",
-    "@babel/preset-env": "^7.9.6",
-    "@babel/register": "^7.9.0",
     "apollo-boost": "^0.1.13",
     "apollo-server": "^2.12.0",
     "apollo-server-express": "^2.12.0",

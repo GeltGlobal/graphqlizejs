@@ -12,6 +12,7 @@ export const mapSequelizeToGraphql = {
   UUIDV4: 'String',
   ENUM: 'String',
   DATE: 'DateTime',
+  DATEONLY: 'Date',
   TIME: 'String',
   INTEGER: 'Int',
   TINYINT: 'Int',
