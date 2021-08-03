@@ -4,12 +4,9 @@ import Sequelize from 'sequelize';
 import { withFilter, PubSub } from 'apollo-server';
 import GraphQLJSON, { GraphQLJSONObject } from 'graphql-type-json';
 
-import graphql_iso_date from 'graphql-iso-date';
-const {
-  GraphQLDate,
-  GraphQLDateTime,
-  GraphQLTime,
-} = graphql_iso_date
+import graphql_scalars from 'graphql-scalars';
+
+const scalarsResolvers = graphql_scalars.resolvers;
 
 function getModelName(model) {
   return model.options.gqName || upperFirst(model.tableName);
@@ -47,9 +44,9 @@ export function resolvers(
   const additionalResolvers = {
     JSON: GraphQLJSON,
     JSONB: GraphQLJSONObject,
-    Date: GraphQLDate,
-    Time: GraphQLTime,
-    DateTime: GraphQLDateTime,
+    Date: scalarsResolvers.Date,
+    Time: scalarsResolvers.Time,
+    DateTime: scalarsResolvers.DateTime,
     type: {},
     query: {},
     mutation: {},
