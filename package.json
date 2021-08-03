@@ -1,6 +1,6 @@
 {
   "name": "@geltglobal/graphqlizejs",
-  "version": "0.4.4.1-g",
+  "version": "0.4.5-g",
   "description": "Generate DataTypes and Resolvers from your ORM Sequilize models.",
   "main": "./src/index.js",
   "type": "module",
