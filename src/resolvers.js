@@ -4,9 +4,7 @@ import Sequelize from 'sequelize';
 import { withFilter, PubSub } from 'apollo-server';
 import GraphQLJSON, { GraphQLJSONObject } from 'graphql-type-json';
 
-import graphql_scalars from 'graphql-scalars';
-
-const scalarsResolvers = graphql_scalars.resolvers;
+import { resolvers as scalarsResolvers } from 'graphql-scalars';
 
 function getModelName(model) {
   return model.options.gqName || upperFirst(model.tableName);
@@ -356,9 +354,9 @@ function convertKeyToOperator(values) {
   if (!Array.isArray(values) && typeof values === 'object') {
     return Object.keys(values).reduce((result, key) => {
       if (values[key].path) {
-        const {path, where} = values[key]
-        result[path] = convertKeyToOperator(where)
-        return result
+        const { path, where } = values[key];
+        result[path] = convertKeyToOperator(where);
+        return result;
       }
 
       result[keyToOp(key)] = convertKeyToOperator(values[key]);
