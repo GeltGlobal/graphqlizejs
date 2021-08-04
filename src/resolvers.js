@@ -351,9 +351,10 @@ function keyToOp(key) {
 }
 
 function convertKeyToOperator(values) {
+  if (values === null) return null;
   if (!Array.isArray(values) && typeof values === 'object') {
     return Object.keys(values).reduce((result, key) => {
-      if (values[key].path) {
+      if (values[key] && values[key].path) {
         const { path, where } = values[key];
         result[path] = convertKeyToOperator(where);
         return result;
