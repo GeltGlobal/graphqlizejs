@@ -357,8 +357,9 @@ function generateQueries(sequelize) {
     if (model.options.gqIgnore) return acc;
 
     let name = getModelName(model);
-    const singularModelName = Sequelize.Utils.singularize(name).toLowerCase();
-    const pluralModelName = Sequelize.Utils.pluralize(name).toLowerCase();
+    const singularModelName = model.options.name.singular.toLowerCase();
+    const pluralModelName = model.options.name.plural.toLowerCase();
+
     name = upperFirst(name);
     if (model.options.gqQuery !== false) {
       acc[singularModelName] = {

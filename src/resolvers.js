@@ -114,8 +114,9 @@ export function resolvers(
 
       modelName = getModelName(model);
 
-      const singular = Sequelize.Utils.singularize(modelName).toLowerCase();
-      const plural = Sequelize.Utils.pluralize(modelName).toLowerCase();
+      const singular = model.options.name.singular.toLowerCase();
+      const plural = model.options.name.plural.toLowerCase();
+
 
       if (model.options.gqQuery !== false) {
         acc[plural] = model.options.gqMiddleware.query(

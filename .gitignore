@@ -83,3 +83,4 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 *.sqlite
+.DS_Store
